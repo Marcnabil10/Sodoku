@@ -43,30 +43,30 @@ public class ThreadsTask implements Runnable {
     
         public  void CheckAllRows(){
             for(int RowIndex = 0;RowIndex < 9;RowIndex++){
-                FailureDetail foundfailure = SudokuValidatorUtils.checkRow( RowIndex, sudukoBoard); //tol ma el method btraga3 null ednia zy el fol
+               List<FailureDetail> foundfailure = SudokuValidatorUtils.checkRow( RowIndex, sudukoBoard); //tol ma el method btraga3 null ednia zy el fol
                 
                 if(foundfailure != null){ //found invalid number
-                    SharedfailedDetails.add(foundfailure); // store it in the list
+                    SharedfailedDetails.addAll(foundfailure);// store it in the list
                 }
             }
         }
         
         public void CheckAllCols(){
             for(int ColIndex = 0;ColIndex < 9;ColIndex++){
-                 FailureDetail foundfailure = SudokuValidatorUtils.checkCol(ColIndex, sudukoBoard);
+                 List<FailureDetail> foundfailure = SudokuValidatorUtils.checkCol(ColIndex, sudukoBoard);
                  
                  if(foundfailure != null){ 
-                     SharedfailedDetails.add(foundfailure); 
+                     SharedfailedDetails.addAll(foundfailure); 
                  }
             }
         }
         
         public void CheckAllBoxes(){
             for(int BoxIndex = 0;BoxIndex < 9;BoxIndex++){
-                FailureDetail foundfailure = SudokuValidatorUtils.checkBox(BoxIndex, sudukoBoard);
+                List<FailureDetail> foundfailure = SudokuValidatorUtils.checkBox(BoxIndex, sudukoBoard);
                 
                 if(foundfailure != null){
-                    SharedfailedDetails.add(foundfailure);
+                    SharedfailedDetails.addAll(foundfailure);
                  }
             }
         }
